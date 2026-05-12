@@ -1,0 +1,307 @@
+{
+  "npc_id": "disciple_renxiu",
+  "name": "李仁修",
+  "portrait": "/images/npc_disciple.webp",
+  "location": "寺院側廂房外，站著，不肯坐下",
+  "break_threshold": 3,
+  "opening": {
+    "text": "他站在廂房的焦黑門框旁，手放在口袋裡。\n\n看見你走過來，眉頭皺了一下，沒有說話，等你先開口。",
+    "image": "/images/scene_side_room.webp"
+  },
+  "nodes": {
+    "start": {
+      "text": "「我知道你是誰，」他說，「警察告訴我們，有一個女人說認識法師。」\n\n他看著你，「你是從哪裡認識他的？」",
+      "choices": [
+        { "label": "「我很早以前就認識他了，在他出家之前。」", "next": "node_before_monk" },
+        { "label": "「昨晚你在哪裡？」", "next": "node_alibi" },
+        { "label": "「你跟行空法師的關係怎麼樣？」", "next": "node_relationship" }
+      ]
+    },
+    "node_relationship": {
+      "text": "他停頓了很長一段時間才回答。\n\n「他是我見過最清醒的人，」他說，「我跟了他三年。我以為我學到一些東西。」\n\n「以為。」你注意到這個詞。",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「你說『以為』——後來發生了什麼事？」", "next": "node_relationship_crack" },
+        { "label": "「他教了你什麼？」", "next": "node_teaching" },
+        { "label": "「你崇拜他嗎？」", "next": "node_admire" }
+      ]
+    },
+    "node_teaching": {
+      "text": "「他說，所有的苦，都來自於執著，」他說，「我相、人相、眾生相、壽者相——這四種相，是所有錯誤的根源。」\n\n他頓了一下，\n\n「他說得很好聽。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「你不相信這些了？」", "next": "node_relationship_crack" }
+      ]
+    },
+    "node_admire": {
+      "text": "「崇拜，」他重複這個詞，像在衡量它的重量，「也許是。」\n\n「他說，不要把任何人當作鏡子。人相是最重的相。」\n\n他笑了一下，很短，「我花了兩年才聽懂這句話。然後又花了一年，把它忘掉。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「你說把它忘掉——為什麼？」", "next": "node_relationship_crack" }
+      ]
+    },
+    "node_relationship_crack": {
+      "text": "他搖搖頭，像是不想說，又像是說不出口。\n\n「他說得對，」他說，聲音有點乾，「問題是他自己也沒有做到。」",
+      "break_delta": 1,
+      "choices": [
+        { "label": "「你說他沒做到——你是指什麼？」", "next": "node_crack_probe" },
+        { "label": "「先說昨晚——你在哪裡？」", "next": "node_alibi" }
+      ]
+    },
+    "node_crack_probe": {
+      "text": "他搖搖頭。\n\n「沒什麼，我說錯了。」\n\n但他的手從口袋裡出來，交叉抱在胸前。",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「你沒有說錯。」（堅持）", "next": "node_crack_press" },
+        { "label": "「好，那昨晚你在哪裡？」", "next": "node_alibi" }
+      ]
+    },
+    "node_crack_press": {
+      "text": "他看著你一會兒。\n\n「你很像他說的那種人，」他說，「不肯放過一件事。」\n\n「他也是這樣，」他頓了一下，「用不同的方式不肯放過自己。」",
+      "break_delta": 1,
+      "choices": [
+        { "label": "「所以你知道他在逃避什麼？」", "next": "node_knows_truth_probe" },
+        { "label": "「你恨他嗎？」", "next": "node_hate" }
+      ]
+    },
+    "node_knows_truth_probe": {
+      "text": "他沒有立刻回答。\n\n「也許，」他說，「也許我知道一些。」\n\n他的眼神在你臉上掃過去，又移開。",
+      "break_delta": 1,
+      "choices": [
+        { "label": "「你找到了他的信封，對嗎？」", "next": "node_envelope_direct", "requires_clue": "clue_disciple_found_envelope" },
+        { "label": "「你怎麼知道的？」", "next": "node_known_truth" }
+      ]
+    },
+    "node_before_monk": {
+      "text": "他的眉頭動了一下。\n\n「出家之前，」他說，「所以你認識的不是行空法師。」\n\n這不是問句。\n\n「你認識的那個人，叫什麼名字？」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「林志遠。他叫林志遠。」", "next": "node_name_reveal" },
+        { "label": "「你知道嗎？」（反問）", "next": "node_name_probe" }
+      ]
+    },
+    "node_name_reveal": {
+      "text": "他沒有說話。\n\n他看著你，很長，像在確認什麼。\n\n然後他轉過頭，看著那片燒焦的牆。\n\n「林志遠，」他說，非常輕，像在唸一個符咒，「他告訴你了嗎。還是你自己查的。」",
+      "reveal": "clue_disciple_knows_name",
+      "break_delta": 1,
+      "choices": [
+        { "label": "「你早就知道他是誰了。」", "next": "node_known_truth" },
+        { "label": "「我認識他很久了。他怎麼跟你說我的？」", "next": "node_what_he_said" }
+      ]
+    },
+    "node_name_probe": {
+      "text": "他停了很久。\n\n「我知道，」他說。\n\n就這樣。沒有多解釋。",
+      "reveal": "clue_disciple_knows_name",
+      "break_delta": 1,
+      "choices": [
+        { "label": "「你怎麼知道的？」", "next": "node_how_found_out" },
+        { "label": "「你知道多久了？」", "next": "node_how_long_known" }
+      ]
+    },
+    "node_how_found_out": {
+      "text": "「三個月前，」他說，「我在整理他的書的時候，找到一個信封。」\n\n「舊照片，一份剪報。我查了很久。」",
+      "reveal": "clue_disciple_found_envelope",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「那份剪報寫的是什麼？」", "next": "node_newspaper" }
+      ]
+    },
+    "node_how_long_known": {
+      "text": "「三個月，」他說，「三個月前我找到那個信封。」\n\n「三個月，每天看著他，等他說。他沒有說。」",
+      "reveal": "clue_disciple_found_envelope",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「信封裡有什麼？」", "next": "node_newspaper" }
+      ]
+    },
+    "node_known_truth": {
+      "text": "「三個月，」他說，「我找到一個信封，在他的書裡。」\n\n「舊照片，一份剪報。我查了很久。」\n\n他低下頭。\n\n「你知道最奇怪的事是什麼嗎。我查清楚之後，第一個念頭不是恨他。」\n\n「是——終於。終於有一件事，是我比他先知道的。」",
+      "reveal": "clue_disciple_found_envelope",
+      "break_delta": 1,
+      "choices": [
+        { "label": "「那份剪報寫的是什麼？」", "next": "node_newspaper" },
+        { "label": "「你有沒有告訴任何人？」", "next": "node_told_anyone" }
+      ]
+    },
+    "node_envelope_direct": {
+      "text": "他愣了一下，然後苦笑了一聲。\n\n「你比我以為的更快，」他說。\n\n「是的，我找到了。三個月前。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「剪報的內容——是一場車禍？」", "next": "node_newspaper" }
+      ]
+    },
+    "node_newspaper": {
+      "text": "「一場車禍，」他說，「2009 年，台北郊區。一輛車失控，對向有人死亡。肇事車輛逃逸。」\n\n「死亡的那個人，」他說，聲音沒有起伏，「姓李。」\n\n他看著你。",
+      "reveal": "clue_accident_report",
+      "break_delta": 2,
+      "choices": [
+        { "label": "（沉默）", "next": "node_silence_after_newspaper" },
+        { "label": "「死的人是你的家人？」", "next": "node_father_direct" }
+      ]
+    },
+    "node_silence_after_newspaper": {
+      "text": "他也沉默。\n\n風吹過，帶來一點菸灰的味道。\n\n「我父親，」他最後說，「死的是我父親。我那時候十四歲。」\n\n「我入寺的時候不知道這件事。真的不知道。」\n\n他的聲音有點高，像在反駁一個沒有人說出口的指控，\n\n「我是後來才查到的。」",
+      "reveal": "clue_father_victim",
+      "is_break": true,
+      "break_delta": 0,
+      "choices": [
+        { "label": "「你查到之後，有沒有去質問他？」", "next": "node_confronted" },
+        { "label": "「你恨他嗎？」", "next": "node_hate" },
+        { "label": "「那昨晚——你去寺院是為了什麼？」", "next": "node_night_motive" }
+      ]
+    },
+    "node_father_direct": {
+      "text": "「我父親，」他說，沒有任何表情，「是的。」\n\n他把手放回口袋裡。\n\n「我入寺不是因為這個。我入寺的時候還不知道。」\n\n「但現在你一定不相信我。」",
+      "reveal": "clue_father_victim",
+      "is_break": true,
+      "break_delta": 0,
+      "choices": [
+        { "label": "「我相信你。」", "next": "node_trust_response" },
+        { "label": "「那昨晚你去寺院，是為了什麼？」", "next": "node_night_motive" }
+      ]
+    },
+    "node_what_he_said": {
+      "text": "他搖頭。\n\n「他沒有說過你，」他說，「他從來不談自己出家之前的事。」\n\n「但三個月前，我在他的書裡找到了一個信封。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「信封裡有什麼？」", "next": "node_newspaper" }
+      ]
+    },
+    "node_told_anyone": {
+      "text": "「沒有，」他說，「我不知道要告訴誰。」\n\n「告訴警察？告訴住持？」他苦笑，「住持自己就知道了。」",
+      "reveal": "clue_abbot_also_knows",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「住持也知道？」", "next": "node_abbot_reference" },
+        { "label": "「昨晚你在寺院看見了什麼？」", "next": "node_saw_someone" }
+      ]
+    },
+    "node_abbot_reference": {
+      "text": "「他早就知道，」他說，「你去問他，他不會說。但他知道。」\n\n他的聲音裡有一種說不清楚的東西，介於憤怒和悲哀之間。",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「那你昨晚去寺院，是為了什麼？」", "next": "node_night_motive" }
+      ]
+    },
+    "node_confronted": {
+      "text": "「沒有，」他說。\n\n「我每天看著他，等他自己說出來。他永遠沒有說。」\n\n「然後寺院要被賣了，那個記者出現了。我想——也許不需要我說，就會有結果了。」\n\n「我以為，有一個結果，我就可以……」他沒有說完這句話。",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「你說的記者——廖子豪？」", "next": "node_journalist" },
+        { "label": "「昨晚，你在寺院看見了什麼？」", "next": "node_saw_someone" }
+      ]
+    },
+    "node_hate": {
+      "text": "「我試著想清楚這個問題，」他說，「試了三個月。」\n\n「如果我恨他，我應該感覺到恨。但我感覺到的是……」\n\n他頓了很久。\n\n「空的。就是空的。」\n\n「他教我空，然後他自己把我的那個空填滿了，然後把它燒掉了。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「昨晚你去寺院，是為了什麼？」", "next": "node_night_motive" }
+      ]
+    },
+    "node_alibi": {
+      "text": "「我在這裡，」他說，「我知道寺院最後一晚，我想來看一下。」\n\n「正式說，我是來道別的。但實際上，」他停頓，「我也不知道我想做什麼。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「你有沒有看見任何人？」", "next": "node_saw_someone" },
+        { "label": "「你幾點到的？」", "next": "node_alibi_time" }
+      ]
+    },
+    "node_alibi_time": {
+      "text": "「大概八點半、九點左右，」他說，「我從山下走上來，雨很大。」\n\n「我進去的時候，住持的廂房還有燈。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「你有沒有看見任何人？」", "next": "node_saw_someone" },
+        { "label": "「你在寺院待了多久？」", "next": "node_how_long_stayed" }
+      ]
+    },
+    "node_how_long_stayed": {
+      "text": "「不久，」他說，「一個小時，也許多一點。」\n\n「後來我聽到聲音，我以為是住持。我就去敲他的門，但他說他一直在裡面，沒有出來。」\n\n「我以為我聽錯了。」",
+      "reveal": "clue_sound_heard",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「你聽到的是什麼聲音？」", "next": "node_sound_detail" },
+        { "label": "「你有沒有看見任何人？」", "next": "node_saw_someone" }
+      ]
+    },
+    "node_sound_detail": {
+      "text": "「腳步聲。或者，」他想了想，「不是腳步聲。是什麼東西被移動了。」\n\n「在主殿的方向。」\n\n他看著你。",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「你去看了嗎？」", "next": "node_went_to_check" }
+      ]
+    },
+    "node_went_to_check": {
+      "text": "「沒有，」他說。\n\n停頓。\n\n「我應該去的。」\n\n他的手收緊了。",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「你有沒有看見任何人？」", "next": "node_saw_someone" }
+      ]
+    },
+    "node_saw_someone": {
+      "text": "他沉默了幾秒。\n\n「有一個女人，」他說，「側門進來的。我在院子裡，她沒有看見我。」\n\n他的眼神在你臉上停了一下，然後移開。\n\n「深色的雨衣。她走路很快，往主殿的方向。」",
+      "reveal": "clue_woman_seen",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「你記得她的臉嗎？」", "next": "node_face_remember" },
+        { "label": "「她進去之後，你呢？」", "next": "node_after_woman" }
+      ]
+    },
+    "node_face_remember": {
+      "text": "「沒有，」他說，「雨太大，燈光也不好。」\n\n他頓了一下。\n\n「但她進去的時候，我聞到了一種味道。」\n\n他皺起眉頭，想，\n\n「像是某種髮香。很淡，但是——」\n\n他沒有說完。",
+      "reveal": "clue_scent_detail",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「她進去之後，你呢？」", "next": "node_after_woman" }
+      ]
+    },
+    "node_after_woman": {
+      "text": "「我離開了，」他說，「我覺得——那不是我該待的地方了。」\n\n「我走到山腳下，叫了車。後來聽說起火，我就……我不知道。我沒有回去。」\n\n「我應該回去的。」\n\n他又說了一遍這句話。",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「你說的記者廖子豪——你認識他嗎？」", "next": "node_journalist" },
+        { "label": "「你覺得那個人死了嗎？」", "next": "node_think_dead" }
+      ]
+    },
+    "node_journalist": {
+      "text": "「他來找過我，」他說，「問行空法師的事，問得很細。」\n\n「我沒有告訴他太多。但他顯然已經知道不少了。」\n\n他停頓，\n\n「你說他失蹤了？」\n\n他的聲音沒有起伏，但你不確定那是平靜，還是他的臉只是很會偽裝。",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「你最後一次見到他是什麼時候？」", "next": "node_journalist_last_seen" }
+      ]
+    },
+    "node_journalist_last_seen": {
+      "text": "「三天前，」他說，「他來寺院，說是最後一次採訪。」\n\n「他走之前，跟我說了一句奇怪的話。」\n\n他想了一下，\n\n「他說：『你比你以為的更幸運。』」\n\n「我不知道那是什麼意思。」",
+      "reveal": "clue_journalist_last_visit",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「你覺得那個人死了嗎？」", "next": "node_think_dead" }
+      ]
+    },
+    "node_think_dead": {
+      "text": "他想了很久。\n\n「我不知道，」他說，「那具遺體。警察說是僧袍。但是——」\n\n他沒有說完。\n\n「我在這裡三年了，」他說，「行空法師從來不穿舊袍子進主殿。他換衣服。這是他的習慣，從來沒有例外。」\n\n他看著你，「你懂我說的意思嗎。」",
+      "reveal": "clue_robe_habit",
+      "break_delta": 0,
+      "choices": [
+        { "label": "（沉默地點頭）", "next": "end" }
+      ]
+    },
+    "node_night_motive": {
+      "text": "他沉默了很久。\n\n「我想親眼看一次他的臉，」他說，「知道那件事之後。就只是看他的臉。」\n\n「我想知道，一個做了那種事的人，他的臉是什麼樣子的。」\n\n他看著地上。\n\n「結果我沒有見到他。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「你看見那個女人之後就離開了？」", "next": "node_after_woman" },
+        { "label": "「你覺得那個人死了嗎？」", "next": "node_think_dead" }
+      ]
+    },
+    "node_trust_response": {
+      "text": "他看著你很久。\n\n「你是第一個說這句話的人，」他說，「連我自己都不相信。」",
+      "break_delta": -1,
+      "choices": [
+        { "label": "「那昨晚你去寺院，是為了什麼？」", "next": "node_night_motive" }
+      ]
+    },
+    "end": {
+      "text": "他轉過身，不再看你。\n\n「如果你找到他，」他說，「不管找到的是什麼，」\n\n「告訴我。」"
+    }
+  }
+}

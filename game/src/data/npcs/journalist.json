@@ -1,0 +1,90 @@
+{
+  "character_id": "journalist_zihao",
+  "name": "廖子豪",
+  "interaction_type": "fragment_investigation",
+  "status": "missing",
+  "fragments": {
+    "phone_draft_01": {
+      "type": "document",
+      "source_location": "scene_backyard_well",
+      "requires_clue": null,
+      "title": "手機草稿 #1",
+      "timestamp": "11/23  18:42",
+      "image": "/images/clue_phone_screen.webp",
+      "text": "稿子已寫完八成，還差一個核心——\n行空法師究竟是不是林志遠。\n\n如果是，這個故事會改變很多人的人生。\n\n包括我自己的。",
+      "reveal": "clue_journalist_draft_1",
+      "narrator": "「包括我自己的」——他不只是旁觀者。"
+    },
+    "phone_draft_02": {
+      "type": "document",
+      "source_location": "unlock_after_draft_1",
+      "requires_clue": "clue_journalist_draft_1",
+      "title": "手機草稿 #2",
+      "timestamp": "11/23  19:15",
+      "image": null,
+      "text": "行空，你一定知道我來了。\n\n我不是來報復你的。\n\n我只是……我不想再一個人扛了。\n\n十五年了。你找到了你的方式，你讓自己消失。\n\n我沒有。我一直在這個名字底下，一直在這個故事底下，一直在那個晚上底下。\n\n這篇稿子不是為了讀者。\n\n是為了讓我可以呼吸。",
+      "reveal": "clue_journalist_draft_2",
+      "narrator": "他和林志遠認識。他知道那晚的事。他也在場。"
+    },
+    "phone_draft_03": {
+      "type": "document",
+      "source_location": "unlock_after_draft_2",
+      "requires_clue": "clue_journalist_draft_2",
+      "title": "手機草稿 #3（最後一則）",
+      "timestamp": "11/23  20:47",
+      "image": null,
+      "text": "我在後院等你。\n\n如果你不來，我就把稿子發出去。\n\n如果你來了，我們談。\n\n就算只是一次，行空。\n就算只是讓我親眼看你說：你還記得那個晚上。\n\n這樣就夠了。",
+      "reveal": "clue_journalist_draft_3",
+      "narrator": "他在後院等行空。但後院的水井旁，只找到這支手機，沒有找到他。"
+    },
+    "notebook_page": {
+      "type": "document",
+      "source_location": "scene_side_room_floor",
+      "requires_clue": null,
+      "title": "採訪筆記（部分損毀）",
+      "timestamp": null,
+      "image": "/images/clue_notebook.webp",
+      "text": "……住持說，他一直知道。他選擇不說。\n這叫慈悲，還是共謀？\n\n……弟子說，他入寺是因為緣分。\n我想，緣分真是個好用的詞。\n\n……林志遠，如果你看到這本筆記——\n（以下損毀）\n……我從來不恨你，這是真的。\n我只是……\n（以下損毀）\n……那個女人的名字，我查到了。謝靜如。\n她也在找你。\n（以下損毀）",
+      "reveal": "clue_journalist_notebook",
+      "narrator": "他查到了謝靜如的名字。他知道她也在找林志遠。"
+    },
+    "memory_fragment_cafe": {
+      "type": "memory",
+      "trigger_clue": "clue_journalist_draft_2",
+      "title": "記憶碎片：咖啡館，兩週前",
+      "image": "/images/memory_cafe_bw.webp",
+      "text": "畫面是黑白的。\n\n一間咖啡館，你不記得在哪裡。\n\n對面坐著一個男人，四十歲左右，眼睛下面有陰影，像是很久沒睡好。\n\n他把一個信封放在桌上。\n\n「我知道你在找他，」他說，「我也在找。」\n\n你沒有說話。\n\n「我有他的下落，」他說，「但我需要你答應我一件事。」",
+      "reveal": "clue_memory_cafe_meeting",
+      "choices": [
+        { "label": "「你要我答應什麼？」", "next": "memory_cafe_continue" },
+        { "label": "記憶中斷——你想不起來了", "next": "memory_interrupt" }
+      ]
+    },
+    "memory_cafe_continue": {
+      "type": "memory",
+      "requires_clue": "clue_memory_cafe_meeting",
+      "title": "記憶碎片：咖啡館（續）",
+      "image": null,
+      "text": "他把信封推過來。\n\n「如果我去找他，你不要跟著來，」他說，「讓我先和他說。」\n\n「然後，不管他決定什麼，你再去。」\n\n你打開信封。裡面是一張地圖，畫著山路，和一個圓圈，標著——\n\n清淨院，側門。\n\n你答應了他。",
+      "reveal": "clue_memory_cafe_promise",
+      "narrator": "謝靜如答應讓廖子豪先去找行空。但她還是去了。這是為什麼？"
+    },
+    "memory_interrupt": {
+      "type": "memory",
+      "requires_clue": null,
+      "title": null,
+      "image": null,
+      "text": "畫面碎成白光。\n\n你坐在詢問室的椅子上，手心是汗的。\n\n那個信封。\n\n你後來做了什麼？\n\n你想不起來。",
+      "reveal": null
+    },
+    "memory_well_encounter": {
+      "type": "memory",
+      "trigger_clue": "clue_journalist_draft_3",
+      "title": "記憶碎片：寺院後院，昨夜",
+      "image": "/images/memory_well_bw.webp",
+      "text": "雨聲。\n\n水井旁，有一個人影，背對著你。\n\n你叫了一聲。\n\n那個人轉過頭來。\n\n不是行空。\n\n「謝小姐，」他說，「你不應該來的。」\n\n然後記憶碎了。",
+      "reveal": "clue_memory_well_encounter",
+      "narrator": "謝靜如在後院看見的人是廖子豪，不是行空。"
+    }
+  }
+}

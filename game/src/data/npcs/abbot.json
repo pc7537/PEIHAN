@@ -1,0 +1,192 @@
+{
+  "npc_id": "abbot_huiming",
+  "name": "釋慧明",
+  "portrait": "/images/npc_abbot.webp",
+  "location": "寺院後院，井邊，坐在一塊石頭上",
+  "break_threshold": 3,
+  "opening": {
+    "text": "老人沒有轉頭。他看著殘破的主殿，那裡還有黑煙的痕跡。\n\n「你是那個找行空法師的女人，」他說，「警察告訴我了。」",
+    "image": "/images/scene_backyard_well.webp"
+  },
+  "nodes": {
+    "start": {
+      "text": "他緩緩轉過頭，打量著你。\n\n「你想問什麼？」",
+      "choices": [
+        { "label": "「昨晚發生火災的時候，您在哪裡？」", "next": "node_alibi" },
+        { "label": "「您認識行空法師多久了？」", "next": "node_relationship" },
+        { "label": "「您知道他真正的名字嗎？」", "next": "node_identity", "requires_clue": "clue_old_photo" }
+      ]
+    },
+    "node_alibi": {
+      "text": "「我在這裡，」他說，「我一直在這裡。四十年了，我去哪裡。」\n\n他頓了一下。\n\n「火起來的時候，我在廂房念經。等我出來，已經來不及了。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「有人可以作證嗎？」", "next": "node_alibi_witness" },
+        { "label": "「您不去救火？」", "next": "node_alibi_fire" },
+        { "label": "「您認識行空法師多久了？」", "next": "node_relationship" }
+      ]
+    },
+    "node_alibi_witness": {
+      "text": "「弟子仁修，他在院子裡，他看見我出來的。」\n\n他停頓了一下，像是在確認自己說的是否準確。\n\n「你可以去問他。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「您和行空法師的關係怎麼樣？」", "next": "node_relationship" }
+      ]
+    },
+    "node_alibi_fire": {
+      "text": "他第一次轉過頭來看你。\n\n「你以為我不想。」\n\n他的聲音裂了一點點，又收回去。\n\n「我快七十歲了。我的腳跑不動。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「對不起，我不是那個意思。」", "next": "node_relationship" },
+        { "label": "「您和他的關係，比住持和弟子還要深？」", "next": "node_relationship_deep" }
+      ]
+    },
+    "node_relationship": {
+      "text": "「二十年，」他說，「他來的時候二十歲不到，身上只有三件衣服和一個不能說的秘密。」\n\n「大部分的人有秘密，我都不問。這裡是讓人休息的地方，不是法院。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「您說的秘密，您知道是什麼嗎？」", "next": "node_secret_probe" },
+        { "label": "「他離開過嗎？這二十年。」", "next": "node_leave" }
+      ]
+    },
+    "node_relationship_deep": {
+      "text": "他沉默了很長一段時間。\n\n「他是我見過最認真贖罪的人，」他說，「這樣的人，不多。」\n\n「所以我讓他留下來。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「您說贖罪——他做了什麼？」", "next": "node_secret_probe" }
+      ]
+    },
+    "node_secret_probe": {
+      "text": "他停頓了很長一段時間。\n\n「出家人不談俗家的事，」他說，「這是規矩。」\n\n但他的手，放在膝蓋上的手，收緊了一下。",
+      "break_delta": 1,
+      "choices": [
+        { "label": "「規矩是人定的，師父。」", "next": "node_secret_press" },
+        { "label": "「那他現在在哪裡？」", "next": "node_leave" }
+      ]
+    },
+    "node_secret_press": {
+      "text": "他看著你。\n\n「你來這裡，不是因為他死了，」他說，「你來這裡，是因為你很早以前就失去他了。」\n\n「這兩件事，對你來說，是不一樣的損失。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「您在說什麼？」", "next": "node_deflect" },
+        { "label": "「是的。他消失了很久了。」", "next": "node_mutual_reveal" }
+      ]
+    },
+    "node_deflect": {
+      "text": "他微微搖頭，像是在說「不用解釋」。\n\n「我見過太多人了，」他說，「每個人臉上都寫著他們來這裡的原因。」\n\n「你的臉上寫著——等待。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「那他現在在哪裡？」", "next": "node_leave" }
+      ]
+    },
+    "node_mutual_reveal": {
+      "text": "他點頭，很慢。\n\n「他告訴我，他不是一個人失蹤的，」他說，「他說，有人在等他，但他沒辦法回去。」\n\n「我以為他是在說業障。」\n\n（停頓）\n\n「現在我想，也許他是在說你。」",
+      "reveal": "clue_abbot_knows",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「他有沒有說過要離開？」", "next": "node_leave" },
+        { "label": "「如果您知道，為什麼不阻止他離開？」", "next": "node_blame" }
+      ]
+    },
+    "node_leave": {
+      "text": "「法師離開了很多次，在心裡，」他說，「但腳從來沒有走出山門。」\n\n他看著被燒焦的主殿方向。\n\n「這就是修行。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「您確定他沒有走出去嗎？」", "next": "node_leave_probe" },
+        { "label": "「您知道他的真實身份嗎？」", "next": "node_identity", "requires_clue": "clue_old_photo" }
+      ]
+    },
+    "node_leave_probe": {
+      "text": "他沒有立刻回答。\n\n風吹過，帶來一點菸灰的氣味。\n\n「昨晚，」他說，「我不知道他去了哪裡。」\n\n這是他第一次承認有什麼事情超出了他的掌控。",
+      "reveal": "clue_abbot_lost_control",
+      "break_delta": 1,
+      "choices": [
+        { "label": "「您是說，他昨晚不在寺院？」", "next": "node_missing" }
+      ]
+    },
+    "node_missing": {
+      "text": "「火起來之前，我去敲他的房門，」他說，「沒有人回應。」\n\n「我以為他在打坐。」\n\n他的眼神第一次出現了什麼看起來像是——恐懼。",
+      "reveal": "clue_room_empty",
+      "break_delta": 1,
+      "choices": [
+        { "label": "「所以您不確定死的人是誰？」", "next": "node_uncertainty" },
+        { "label": "「您知道他的真實身份嗎？」", "next": "node_identity", "requires_clue": "clue_old_photo" }
+      ]
+    },
+    "node_uncertainty": {
+      "text": "他沉默了很久。\n\n「警察說是僧袍，」他說，「但是……」\n\n他沒有說完。",
+      "break_delta": 2,
+      "choices": [
+        { "label": "「但是什麼？」", "next": "node_break_trigger" }
+      ]
+    },
+    "node_identity": {
+      "requires_clue": "clue_old_photo",
+      "text": "你把那張舊照片放在他面前。\n\n他看了很久，沒有說話。\n\n鳥叫了一聲，停了。\n\n「你從哪裡找到這個？」他說。聲音很輕，但不是問句。",
+      "break_delta": 2,
+      "choices": [
+        { "label": "「廂房的牆上。照片裡的人是林志遠，對嗎？」", "next": "node_identity_confirmed" },
+        { "label": "（沉默，等他先開口）", "next": "node_identity_silence" }
+      ]
+    },
+    "node_identity_silence": {
+      "text": "他把照片拿起來，翻過去，看著背面。\n\n「2009.06，」他念出那行字，「畢業旅行。」\n\n他把照片放回桌上。\n\n「他給我看過這張照片，」他說，「他說這是他上山之前最後一次笑。」",
+      "reveal": "clue_abbot_saw_photo",
+      "break_delta": 1,
+      "choices": [
+        { "label": "「他叫林志遠，對嗎？」", "next": "node_identity_confirmed" }
+      ]
+    },
+    "node_identity_confirmed": {
+      "text": "他把照片推回來。\n\n「行空法師，」他說，「在這裡，就叫行空法師。」\n\n然後他的聲音變了，像一個遠處的裂縫傳來的聲音：\n\n「你知道我為什麼讓他留下來嗎。」\n\n這次真的是問句。",
+      "reveal": "clue_abbot_leverage",
+      "break_delta": 1,
+      "choices": [
+        { "label": "「因為您知道他的秘密。」", "next": "node_break_trigger" },
+        { "label": "「因為他是好弟子？」", "next": "node_identity_soft" }
+      ]
+    },
+    "node_identity_soft": {
+      "text": "他看著你，像在確認你是不是真的沒看穿，還是在給他一個台階。\n\n「他是好弟子，」他說，「這是真的。」\n\n「但不是唯一的原因。」",
+      "break_delta": 1,
+      "choices": [
+        { "label": "「那另一個原因是什麼？」", "next": "node_break_trigger" }
+      ]
+    },
+    "node_break_trigger": {
+      "text": "他沒有否認。\n\n「……他答應我會留下來的，」他說，「他說這裡是他的贖罪。我沒有逼他。我只是讓他知道，如果他離開，那個名字就會被找到。」\n\n（長時間的沉默）\n\n「我以為這樣是救他。」",
+      "reveal": "clue_abbot_secret",
+      "is_break": true,
+      "break_delta": 0,
+      "choices": [
+        { "label": "「所以昨晚，他走了。」", "next": "node_endgame" },
+        { "label": "「您恨他嗎？」", "next": "node_hate" }
+      ]
+    },
+    "node_blame": {
+      "text": "「我沒有辦法阻止，」他說，「一個人如果決定要走，你攔不住的。」\n\n他頓了一下。\n\n「我只能讓他有理由留下來。」",
+      "break_delta": 1,
+      "choices": [
+        { "label": "「什麼樣的理由？」", "next": "node_break_trigger" }
+      ]
+    },
+    "node_hate": {
+      "text": "他想了很久。\n\n「不，」他說，「我只是——」\n\n他看著自己的手。\n\n「我以為這座寺院比任何人的命都重要。現在我不確定了。」",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「昨晚他走之前，您有沒有見到他？」", "next": "node_endgame" }
+      ]
+    },
+    "node_endgame": {
+      "text": "「沒有，」他說，「等我發現他不在，火已經起來了。」\n\n他看著廢墟方向。\n\n「如果那個人不是行空，」他說，聲音很輕，「那裡面的人是誰。」",
+      "reveal": "clue_abbot_endgame",
+      "break_delta": 0,
+      "choices": [
+        { "label": "「我也想知道。」", "next": "end" }
+      ]
+    },
+    "end": {
+      "text": "他沒有再說話。\n\n你們沉默地坐在那口舊井旁，菸灰的氣味還沒有散。\n\n牆上那句話在你心裡轉：\n\n應無所住，而生其心。\n\n你不知道那個執著留住他的人，算是愛，還是算是囚禁。"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "act": 1,
+  "title": "灰燼",
+  "sequences": {
+    "opening_cards": [
+      {
+        "id": "card_date",
+        "type": "title_card",
+        "text": "2024．11．24\n07:12\n清淨院，已拆除申請進行中\n昨夜火災一人死亡"
+      }
+    ],
+    "opening_narration": [
+      {
+        "id": "narr_01",
+        "text": "你記得雨的聲音。"
+      },
+      {
+        "id": "narr_02",
+        "text": "你記得自己沿著山路走，手機沒有訊號，鞋子濕透，松脂的氣味和燒焦的氣味混在一起。"
+      },
+      {
+        "id": "narr_03",
+        "text": "你不記得中間的四個小時。"
+      }
+    ],
+    "interrogation_scene": {
+      "background": "/images/scene_interrogation.webp",
+      "setup_text": "對面坐著一個警察，疲倦，筆記本翻到新的一頁。他說他叫陳組長。他問你昨晚幾點到的。\n\n你說你不確定。\n\n他抬起頭。\n\n「謝小姐，」他說，「你的車停在寺院側門外。你的外套袖口有菸灰。現場的泥土裡有你的鞋印。」\n\n他停頓一下。\n\n「你說你是來找一個認識的人。」\n\n他把一張照片推過來。燒焦的僧袍，碎裂的邊緣。\n\n「這個人，你認識嗎？」",
+      "choices": [
+        {
+          "id": "choice_a",
+          "label": "「我認識他。他叫林志遠。」",
+          "response": "陳組長把筆放下。\n\n「林志遠，」他重複，「失蹤十五年，對不對。」\n\n他顯然已經查過了。\n\n「謝小姐，死者的法號是行空。俗家名字目前不明。」\n\n他看著你，然後換了一張照片推過來。監視器截圖，畫質很差，是昨晚的。一個女人，雨衣，從寺院側門進入。\n\n時間戳記：21:08\n\n「這是你嗎？」",
+          "next": "memory_fragment_001"
+        },
+        {
+          "id": "choice_b",
+          "label": "「照片太模糊了，我無法確認。」",
+          "response": "陳組長沒有說話。\n\n他把照片收回去，換了一張。這張是行空法師的生前照片，在一次佛學講座上拍的，他低著頭，半側臉。\n\n你的手指在桌面下微微收緊。\n\n「現在呢？」他說。",
+          "next": "memory_fragment_001"
+        },
+        {
+          "id": "choice_c",
+          "label": "「我可以看一下現場嗎？」",
+          "response": "「現場還在封鎖中，」他說，「不過——」\n\n他頓了一下，好像在評估什麼。\n\n「如果你能告訴我你認識的那個人是誰，我可以安排你做一個正式的身份指認。」\n\n他把兩張照片都推過來，一前一後。\n\n「選一張先回答我。」",
+          "next": "memory_fragment_001"
+        }
+      ]
+    },
+    "memory_fragment_001": {
+      "id": "memory_fragment_001",
+      "title": "記憶碎片 #001：門",
+      "image": "/images/memory_door_bw.webp",
+      "is_bw": true,
+      "text": "畫面是黑白的，像舊照片。\n\n一扇木門。門縫裡透出火光。\n\n你的手放在門把上。\n\n你沒有推開它。\n\n或者你推開了。\n\n你不記得了。",
+      "tap_to_continue": true,
+      "next_phase": "exploration"
+    },
+    "transition_to_ruins": {
+      "text": "陳組長帶你去現場做身份指認。\n\n現場還有警察拉著的封鎖線。空氣裡有菸灰，有雨後的泥土，有某種說不清楚的東西，讓你想起它又想逃開它。\n\n你走進清淨院的廢墟。"
+    }
+  },
+  "wall_calligraphy": {
+    "text": "應無所住，而生其心",
+    "source": "《金剛般若波羅蜜經》第十品",
+    "appear_in": ["interrogation_scene", "final_deduction"]
+  }
+}

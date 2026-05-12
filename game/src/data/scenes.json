@@ -1,0 +1,123 @@
+{
+  "scenes": {
+    "interrogation": {
+      "id": "interrogation",
+      "name": "警察局詢問室",
+      "background": "/images/scene_interrogation.webp",
+      "hotspots": []
+    },
+    "ruins_main": {
+      "id": "ruins_main",
+      "name": "清淨院廢墟",
+      "background": "/images/scene_ruins.webp",
+      "hotspots": [
+        {
+          "id": "hotspot_statue",
+          "label": "燒焦的佛像底座",
+          "position": { "x": 25, "y": 65 },
+          "clue_id": "clue_statue_inscription",
+          "description": "底部有刻字，不是佛號。",
+          "detail": "用手撥開灰燼，底座的邊緣刻著：\n\n「2009.11.23  還」\n\n字跡工整，像是鑿刻的。\n2009——十五年前的今天。"
+        },
+        {
+          "id": "hotspot_mallet",
+          "label": "木魚的殘骸",
+          "position": { "x": 55, "y": 70 },
+          "clue_id": "clue_broken_mallet",
+          "description": "敲擊面有新的破損，不是火燒的。",
+          "detail": "木魚燒了大半，但敲擊面的裂縫走向不對。\n\n火不會讓木頭這樣裂開。\n\n這個裂縫是被用力砸過的。"
+        },
+        {
+          "id": "hotspot_footprints",
+          "label": "入口處的泥土",
+          "position": { "x": 75, "y": 80 },
+          "clue_id": "clue_footprints",
+          "description": "被雨水沖淡，但還能看出至少三種腳印。",
+          "detail": "主殿入口處，泥土被踩成了幾層交疊的痕跡。\n\n辨識出至少三種不同的鞋底紋路。\n\n其中一種是女鞋的尺碼。"
+        }
+      ],
+      "npcs": [
+        {
+          "id": "abbot_huiming",
+          "label": "釋慧明",
+          "position": { "x": 80, "y": 55 },
+          "description": "老住持坐在後院的井邊，不說話。"
+        }
+      ],
+      "navigation": [
+        { "label": "前往側廂房", "target": "ruins_side_room" },
+        { "label": "前往後院", "target": "ruins_backyard" }
+      ]
+    },
+    "ruins_side_room": {
+      "id": "ruins_side_room",
+      "name": "側廂房",
+      "background": "/images/scene_side_room.webp",
+      "hotspots": [
+        {
+          "id": "hotspot_ledger",
+          "label": "記帳本",
+          "position": { "x": 30, "y": 60 },
+          "clue_id": "clue_ledger",
+          "description": "封面完整，內頁濕透，但最後一行數字還能辨認。",
+          "detail": "最後一行依稀可見：\n\n「11/20  ¥380,000  廖子豪」\n\n三天前，有人付了一大筆錢給那個記者。"
+        },
+        {
+          "id": "hotspot_photo",
+          "label": "牆上破碎的照片框",
+          "position": { "x": 65, "y": 40 },
+          "clue_id": "clue_old_photo",
+          "description": "玻璃碎了，但照片還在。四個年輕人，其中一個側臉你認得。",
+          "detail": "照片背面：2009.06，畢業旅行，L、Z、Y、H。\n\n你把這張照片放大了太多次。\n你認得那個側臉。"
+        },
+        {
+          "id": "hotspot_notebook",
+          "label": "地板上的筆記本",
+          "position": { "x": 45, "y": 75 },
+          "clue_id": "clue_notebook",
+          "description": "部分濕透，但可以辨認出幾個名字——包括你的。",
+          "detail": "封面是一本普通的 B5 筆記本。\n\n能辨識的片段提到：住持、弟子、林志遠，以及謝靜如的名字。\n\n有人查到你了。在你找到他之前。"
+        }
+      ],
+      "npcs": [
+        {
+          "id": "disciple_renxiu",
+          "label": "李仁修",
+          "position": { "x": 70, "y": 60 },
+          "description": "年輕的弟子站在門框旁，手放在口袋裡。"
+        }
+      ],
+      "navigation": [
+        { "label": "返回廢墟", "target": "ruins_main" },
+        { "label": "前往後院", "target": "ruins_backyard" }
+      ]
+    },
+    "ruins_backyard": {
+      "id": "ruins_backyard",
+      "name": "後院",
+      "background": "/images/scene_backyard_well.webp",
+      "hotspots": [
+        {
+          "id": "hotspot_phone",
+          "label": "水井旁的手機",
+          "position": { "x": 50, "y": 70 },
+          "clue_id": "clue_phone_draft",
+          "description": "螢幕破裂，但還有電。有三則未發送的草稿。",
+          "detail": "廖子豪的手機。\n\n草稿的最後時間是昨晚 20:47。\n\n廖子豪在後院等人，但這裡只找到手機，沒有找到他。"
+        }
+      ],
+      "npcs": [
+        {
+          "id": "abbot_huiming",
+          "label": "釋慧明",
+          "position": { "x": 75, "y": 60 },
+          "description": "老住持坐在井邊的石頭上。"
+        }
+      ],
+      "navigation": [
+        { "label": "返回廢墟", "target": "ruins_main" },
+        { "label": "返回側廂房", "target": "ruins_side_room" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,555 @@
+{
+  "clues": [
+    {
+      "id": "clue_old_photo",
+      "name": "牆上的舊照片",
+      "category": "scene",
+      "description": "四個年輕人，其中一個側臉你認得。背面寫著 2009.06。",
+      "detail": "照片裡有四個人，站在一棟大學宿舍前。其中一個人側著臉，但眉骨和下巴的輪廓——你把這張照片放大了太多次，你認得。\n\n照片背面：2009.06，畢業旅行，L、Z、Y、H。",
+      "image": "/images/clue_old_photo.webp",
+      "source": "廂房牆上",
+      "connections": {
+        "npc_unlocks": [
+          { "npc_id": "abbot_huiming", "node_id": "node_identity" },
+          { "npc_id": "disciple_renxiu", "node_id": "node_before_monk" }
+        ],
+        "combines_with": ["clue_accident_report"],
+        "combine_result": "clue_identity_confirmed"
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_phone_draft",
+      "name": "後院的手機",
+      "category": "scene",
+      "description": "螢幕破裂，但還有電。有三則未發送的草稿。",
+      "detail": "後院水井旁找到的手機，鎖定密碼已失效。有三則未發送的草稿，時間戳顯示都是昨晚寫的。\n\n廖子豪——失蹤的記者。",
+      "image": "/images/clue_phone_screen.webp",
+      "source": "後院水井旁",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_notebook",
+      "name": "採訪筆記（損毀）",
+      "category": "scene",
+      "description": "部分濕透，但可以辨認出幾個名字——包括你的。",
+      "detail": "封面是一本普通的 B5 筆記本，沒有名字。\n\n內頁大部分損毀，能辨識的片段提到：住持、弟子、林志遠，以及謝靜如的名字。\n\n有人查到你了。在你找到他之前。",
+      "image": "/images/clue_notebook.webp",
+      "source": "側廂房地板",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": ["clue_journalist_draft_2"],
+        "combine_result": "clue_journalist_identity"
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_robe_burnt",
+      "name": "燒焦的僧袍",
+      "category": "scene",
+      "description": "警察展示的照片。死者身上的衣物——灰色舊款，右袖有縫補痕跡。",
+      "detail": "灰色，中式領口。右袖有一道縫補的痕跡，針腳不整齊，像是自己縫的。\n\n袍子的款式是舊款，寺院已經十年沒有採購這個版本了。",
+      "image": "/images/clue_robe_burnt.webp",
+      "source": "警察局——陳組長展示",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": ["clue_robe_habit"],
+        "combine_result": "clue_robe_mismatch"
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_statue_inscription",
+      "name": "佛像底座的刻字",
+      "category": "scene",
+      "description": "用手撥開灰燼，底座邊緣刻著：「2009.11.23 還」",
+      "detail": "字跡工整，像是鑿刻的，而不是刮痕。\n\n2009.11.23——十五年前的今天。\n\n還——還什麼？",
+      "image": "/images/clue_statue_inscription.webp",
+      "source": "主殿廢墟",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": ["clue_accident_report"],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": false
+    },
+    {
+      "id": "clue_broken_mallet",
+      "name": "木魚的破損",
+      "category": "scene",
+      "description": "敲擊面有新的破損，不是火燒的——是衝擊造成的。",
+      "detail": "木魚燒了大半，但敲擊面的裂縫走向不對。\n\n火不會讓木頭這樣裂開。\n\n這個裂縫是被用力砸過的。",
+      "image": "/images/clue_broken_mallet.webp",
+      "source": "主殿廢墟",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": false
+    },
+    {
+      "id": "clue_footprints",
+      "name": "地上的腳印輪廓",
+      "category": "scene",
+      "description": "被雨水部分沖淡，至少三種不同的鞋底紋路。",
+      "detail": "主殿入口處，泥土被踩成了幾層交疊的痕跡。\n\n辨識出至少三種不同的鞋底紋路。\n\n其中一種是女鞋的尺碼。",
+      "image": null,
+      "source": "主殿廢墟入口",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": ["clue_woman_seen"],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": false
+    },
+    {
+      "id": "clue_ledger",
+      "name": "記帳本最後一行",
+      "category": "scene",
+      "description": "內頁濕透，但最後一行數字還能辨認：一筆很大的支出，收款方是個人名字。",
+      "detail": "封面完整，內頁因雨水大部分暈開。\n\n最後一行依稀可見：\n「11/20  ¥380,000  廖子豪」\n\n三天前，有人付了一大筆錢給那個記者。",
+      "image": "/images/clue_ledger.webp",
+      "source": "側廂房",
+      "connections": {
+        "npc_unlocks": [
+          { "npc_id": "abbot_huiming", "node_id": "node_identity_confirmed" }
+        ],
+        "combines_with": ["clue_journalist_last_visit"],
+        "combine_result": "clue_payment_motive"
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_abbot_knows",
+      "name": "住持知道那個等待的人",
+      "category": "dialogue",
+      "description": "釋慧明說：行空提過，有人在等他，但他沒辦法回去。",
+      "detail": "住持的原話：「他告訴我，他不是一個人失蹤的。他說，有人在等他，但他沒辦法回去。」\n\n「我以為他是在說業障。現在我想，也許他是在說你。」",
+      "image": null,
+      "source": "釋慧明（對話）",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": false
+    },
+    {
+      "id": "clue_abbot_secret",
+      "name": "住持的要挾",
+      "category": "dialogue",
+      "description": "住持以林志遠的身份要挾行空，讓他無法離開寺院二十年。",
+      "detail": "釋慧明崩潰後說：「我只是讓他知道，如果他離開，那個名字就會被找到。」\n\n「我以為這樣是救他。」\n\n一個囚禁，被稱為慈悲。",
+      "image": null,
+      "source": "釋慧明（崩潰後）",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_abbot_leverage",
+      "name": "住持的控制",
+      "category": "dialogue",
+      "description": "住持知道行空的秘密，並以此作為讓他留下的理由。",
+      "detail": "「你知道我為什麼讓他留下來嗎。」\n\n他沒有否認自己知道行空的真實身份。",
+      "image": null,
+      "source": "釋慧明（對話）",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": false
+    },
+    {
+      "id": "clue_room_empty",
+      "name": "行空的房間",
+      "category": "dialogue",
+      "description": "火起之前，住持去敲行空的門，無人回應。",
+      "detail": "釋慧明：「火起來之前，我去敲他的房門，沒有人回應。我以為他在打坐。」\n\n行空在火起之前就已經不在房間了。",
+      "image": null,
+      "source": "釋慧明（對話）",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": ["clue_robe_mismatch"],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": false
+    },
+    {
+      "id": "clue_disciple_knows_name",
+      "name": "李仁修知道林志遠",
+      "category": "dialogue",
+      "description": "李仁修聽到「林志遠」這個名字，沒有任何驚訝——他早就知道了。",
+      "detail": "他重複那個名字，像在唸一個符咒。\n\n三個月前，他在行空的書裡找到了信封，然後把一切都查清楚了。",
+      "image": null,
+      "source": "李仁修（對話）",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": false
+    },
+    {
+      "id": "clue_disciple_found_envelope",
+      "name": "書裡的信封",
+      "category": "dialogue",
+      "description": "李仁修三個月前在行空的書裡發現信封——舊照片和剪報。",
+      "detail": "三個月前。他把一切都查清楚了之後，第一個念頭是：「終於有一件事，是我比他先知道的。」\n\n人相——他的痛苦從來都不是恨，而是那個永遠追不上的距離。",
+      "image": null,
+      "source": "李仁修（對話）",
+      "connections": {
+        "npc_unlocks": [
+          { "npc_id": "disciple_renxiu", "node_id": "node_envelope_direct" }
+        ],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": false
+    },
+    {
+      "id": "clue_accident_report",
+      "name": "2009 年車禍剪報",
+      "category": "dialogue",
+      "description": "肇事逃逸，一人死亡，姓李。李仁修的父親。",
+      "detail": "2009 年，台北郊區。一輛車失控，對向有人死亡。肇事車輛逃逸，案件懸而未決。\n\n死亡者：李建國，45 歲。\n\n李仁修的父親。他十四歲那年。",
+      "image": null,
+      "source": "李仁修（對話）",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": ["clue_old_photo"],
+        "combine_result": "clue_identity_confirmed"
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_father_victim",
+      "name": "李仁修的父親是受害者",
+      "category": "dialogue",
+      "description": "那場車禍死的人是李仁修的父親。他十四歲那年。",
+      "detail": "他說這件事的時候聲音沒有起伏。\n\n「但現在你一定不相信我。」\n\n他入寺不是為了接近行空。他入寺的時候還不知道。\n\n這是他最想讓人相信的一件事。",
+      "image": null,
+      "source": "李仁修（崩潰後）",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_woman_seen",
+      "name": "側門進入的女人",
+      "category": "dialogue",
+      "description": "李仁修看見一名穿深色雨衣的女性，從側門進入，往主殿方向走。",
+      "detail": "「深色的雨衣。她走路很快，往主殿的方向。」\n\n他的眼神在你臉上停了一下，然後移開。\n\n他知道那是你。他沒有說出來。",
+      "image": null,
+      "source": "李仁修（對話）",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": ["clue_footprints"],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_scent_detail",
+      "name": "她的髮香",
+      "category": "dialogue",
+      "description": "李仁修記得那個女人身上有一種淡淡的髮香。",
+      "detail": "他皺起眉頭，努力想那個氣味。\n\n你低下頭，想起自己昨晚用的護髮噴霧。",
+      "image": null,
+      "source": "李仁修（對話）",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": false
+    },
+    {
+      "id": "clue_sound_heard",
+      "name": "主殿方向的聲音",
+      "category": "dialogue",
+      "description": "李仁修在寺院內聽見來自主殿方向的移動聲，但沒有去看。",
+      "detail": "「不是腳步聲。是什麼東西被移動了。」\n\n「我應該去的。」\n\n他說了兩次這句話。",
+      "image": null,
+      "source": "李仁修（對話）",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": false
+    },
+    {
+      "id": "clue_robe_habit",
+      "name": "行空的換袍習慣",
+      "category": "dialogue",
+      "description": "行空進主殿前一定換新袍子——三年從無例外。",
+      "detail": "李仁修的原話：「行空法師從來不穿舊袍子進主殿。他換衣服。這是他的習慣，三年了，從來沒有例外。」\n\n死者身上穿的是舊款袍子。",
+      "image": null,
+      "source": "李仁修（對話）",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": ["clue_robe_burnt"],
+        "combine_result": "clue_robe_mismatch"
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_journalist_last_visit",
+      "name": "記者最後一次來訪",
+      "category": "dialogue",
+      "description": "廖子豪案發三天前來過寺院，走前對李仁修說了意味不明的話。",
+      "detail": "「你比你以為的更幸運。」\n\n他說完就走了。\n\n三天後，他失蹤了。",
+      "image": null,
+      "source": "李仁修（對話）",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": ["clue_ledger"],
+        "combine_result": "clue_payment_motive"
+      },
+      "annotation": "",
+      "is_key_clue": false
+    },
+    {
+      "id": "clue_journalist_draft_1",
+      "name": "手機草稿 #1",
+      "category": "document",
+      "description": "記者的未發送草稿：「這個故事會改變很多人的人生。包括我自己的。」",
+      "detail": "他不只是採訪行空的記者。\n\n他和這個故事有更深的關係。",
+      "image": null,
+      "source": "廖子豪的手機",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": false
+    },
+    {
+      "id": "clue_journalist_draft_2",
+      "name": "手機草稿 #2",
+      "category": "document",
+      "description": "「我不想再一個人扛了。十五年了。」——他和行空共同承擔著那晚的事。",
+      "detail": "「你找到了你的方式，你讓自己消失。我沒有。」\n\n廖子豪也在那場車禍的現場。\n\n他也逃了。",
+      "image": null,
+      "source": "廖子豪的手機",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": ["clue_notebook"],
+        "combine_result": "clue_journalist_identity"
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_journalist_draft_3",
+      "name": "手機草稿 #3（最後一則）",
+      "category": "document",
+      "description": "「我在後院等你。如果你不來，我就把稿子發出去。」",
+      "detail": "20:47 寫的。\n\n廖子豪在後院等行空。\n\n水井旁只找到這支手機，沒有找到廖子豪。",
+      "image": null,
+      "source": "廖子豪的手機",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": ["clue_memory_well_encounter"],
+        "combine_result": "clue_victim_identity"
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_journalist_notebook",
+      "name": "採訪筆記的內容",
+      "category": "document",
+      "description": "筆記提到林志遠、住持、弟子，還有謝靜如的名字。",
+      "detail": "「那個女人的名字，我查到了。謝靜如。她也在找你。」\n\n他在你找到他之前，就已經找到你了。",
+      "image": null,
+      "source": "廖子豪的採訪筆記",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": false
+    },
+    {
+      "id": "clue_memory_cafe_meeting",
+      "name": "記憶：咖啡館的男人",
+      "category": "memory",
+      "description": "兩週前，廖子豪找到你，說他有行空的下落。",
+      "detail": "他眼睛下面有陰影，像是很久沒睡好。\n\n他把信封推過來，說需要你答應他一件事。",
+      "image": null,
+      "source": "謝靜如的記憶碎片",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": false
+    },
+    {
+      "id": "clue_memory_cafe_promise",
+      "name": "記憶：你答應了他",
+      "category": "memory",
+      "description": "謝靜如答應廖子豪讓他先去找行空，但她昨晚還是去了。",
+      "detail": "你打開信封，看到清淨院側門的地圖。\n\n你答應了他。\n\n然後昨晚，你還是去了。\n\n為什麼？",
+      "image": null,
+      "source": "謝靜如的記憶碎片",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": ["clue_memory_well_encounter"],
+        "combine_result": "clue_why_she_came"
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_memory_well_encounter",
+      "name": "記憶：後院的男人不是行空",
+      "category": "memory",
+      "description": "謝靜如在後院見到的人是廖子豪，不是行空。",
+      "detail": "他轉過頭來。\n\n「謝小姐，你不應該來的。」\n\n不是行空的聲音。是廖子豪。\n\n然後記憶碎了。",
+      "image": null,
+      "source": "謝靜如的記憶碎片",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": ["clue_journalist_draft_3"],
+        "combine_result": "clue_victim_identity"
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_robe_mismatch",
+      "name": "【推論】死者穿著行空不會穿的袍子",
+      "category": "combine",
+      "description": "行空從不穿舊袍進主殿，但死者穿的是舊袍——死者可能不是行空。",
+      "detail": "行空從不穿舊袍進主殿。三年，從無例外。\n\n死者穿著舊款袍子。\n\n如果這個習慣是真的——那個人，不是行空。\n\n那是誰？",
+      "image": null,
+      "source": "推論：clue_robe_burnt + clue_robe_habit",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": ["clue_journalist_draft_3", "clue_memory_well_encounter"],
+        "combine_result": "clue_victim_identity"
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_identity_confirmed",
+      "name": "【推論】行空就是林志遠",
+      "category": "combine",
+      "description": "照片、剪報、住持的承認——三條線索確認行空法師的真實身份是林志遠。",
+      "detail": "舊照片的側臉。\n2009 年車禍的逃逸者。\n住持選擇不說的秘密。\n\n行空法師 = 林志遠。\n\n他在這裡贖罪了二十年，或者說，被囚禁了二十年。",
+      "image": null,
+      "source": "推論：clue_old_photo + clue_accident_report",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_journalist_identity",
+      "name": "【推論】廖子豪也在那晚的現場",
+      "category": "combine",
+      "description": "筆記加上草稿 #2——廖子豪和行空是那場車禍的共同在場者。",
+      "detail": "草稿 #2：「你找到了你的方式，你讓自己消失。我沒有。」\n筆記：「我從來不恨你。」\n\n廖子豪也在 2009 年那個晚上。\n他也逃了。\n\n這篇稿子，是他的告解，也是他的勒索。",
+      "image": null,
+      "source": "推論：clue_journalist_draft_2 + clue_notebook",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_victim_identity",
+      "name": "【核心推論】死者是廖子豪",
+      "category": "combine",
+      "description": "三條線索收束：死者不是行空，廖子豪在後院等行空，謝靜如在後院見到的是廖子豪。",
+      "detail": "廖子豪在後院等行空（草稿 #3）。\n謝靜如在後院遇見的是廖子豪（記憶碎片）。\n死者穿著行空不會穿的袍子（換袍習慣）。\n\n結論：\n燒死的人是廖子豪。\n行空——林志遠——再次消失了。",
+      "image": null,
+      "source": "推論：clue_robe_mismatch + clue_journalist_draft_3 + clue_memory_well_encounter",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": true
+    },
+    {
+      "id": "clue_payment_motive",
+      "name": "【推論】住持付錢給記者",
+      "category": "combine",
+      "description": "記帳本顯示住持三天前付了 38 萬給廖子豪——買他的沉默，還是別的？",
+      "detail": "「11/20  ¥380,000  廖子豪」\n\n三天前，住持付了一大筆錢給記者。\n\n但廖子豪還是來了。\n\n錢買不到他想要的東西。",
+      "image": null,
+      "source": "推論：clue_ledger + clue_journalist_last_visit",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": false
+    },
+    {
+      "id": "clue_why_she_came",
+      "name": "【關鍵空白】謝靜如為什麼違背承諾",
+      "category": "combine",
+      "description": "她答應了，但還是去了。這中間發生了什麼，是整個謎的核心。",
+      "detail": "你答應廖子豪讓他先去。\n\n但昨晚，你還是上山了。\n\n為什麼？\n\n這個問題沒有線索可以直接回答。\n答案在你的記憶缺口裡。\n最終推理時，你需要面對它。",
+      "image": null,
+      "source": "推論：clue_memory_cafe_promise + clue_memory_well_encounter",
+      "connections": {
+        "npc_unlocks": [],
+        "combines_with": [],
+        "combine_result": null
+      },
+      "annotation": "",
+      "is_key_clue": true
+    }
+  ]
+}
