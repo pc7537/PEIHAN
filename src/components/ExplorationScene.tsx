@@ -31,11 +31,10 @@ export default function ExplorationScene() {
     setActiveHotspot(null)
   }
 
-  // For journalist fragments, find the first available fragment
   const getJournalistEntry = () => {
-    const frags = journalistData.fragments as Record<string, { type: string; requires_clue?: string | null; source_location?: string }>
+    const frags = journalistData.fragments as Record<string, { type: string; requires_clue?: string | null; source_location?: string | null }>
     for (const [fragId, frag] of Object.entries(frags)) {
-      if (frag.type === 'document' && frag.source_location === `scene_${state.currentScene.replace('ruins_', '')}` ) {
+      if (frag.type === 'document' && frag.source_location === state.currentScene) {
         if (!frag.requires_clue || state.foundClues.includes(frag.requires_clue)) {
           return fragId
         }
@@ -43,6 +42,14 @@ export default function ExplorationScene() {
     }
     return null
   }
+
+  const journalistEntryId = getJournalistEntry()
+
+  const phoneReadable = state.currentScene === 'ruins_backyard' && state.foundClues.includes('clue_phone_draft')
+  const notebookReadable = state.currentScene === 'ruins_side_room' && state.foundClues.includes('clue_notebook')
+  const canReadJournalist = (phoneReadable || notebookReadable) && journalistEntryId !== null
+
+  const canDeduce = state.foundClues.includes('clue_robe_mismatch')
 
   return (
     <div className="fixed inset-0 bg-zinc-900 flex flex-col">
@@ -113,9 +120,30 @@ export default function ExplorationScene() {
           )}
         </div>
 
+        {/* Journalist document reader */}
+        {canReadJournalist && journalistEntryId && (
+          <div className="px-5 pt-2 pb-1 border-t border-stone-900">
+            <button
+              onClick={() =>
+                dispatch({
+                  type: 'START_FRAGMENT_INVESTIGATION',
+                  npcId: 'journalist_zihao',
+                  fragmentId: journalistEntryId,
+                })
+              }
+              className="flex items-center gap-3 w-full text-left py-2 px-3 border border-amber-900/60 text-amber-600/80 hover:border-amber-700 hover:text-amber-400 transition-colors duration-200"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-600 flex-shrink-0" />
+              <span className="text-sm">
+                {state.currentScene === 'ruins_backyard' ? '閱讀手機草稿' : '閱讀採訪筆記'}
+              </span>
+            </button>
+          </div>
+        )}
+
         {/* Navigation */}
         {scene.navigation && scene.navigation.length > 0 && (
-          <div className="px-5 pb-4 pt-2 border-t border-stone-800">
+          <div className="px-5 pb-2 pt-2 border-t border-stone-800">
             <div className="flex gap-2">
               {scene.navigation.map((nav) => (
                 <button
@@ -127,6 +155,18 @@ export default function ExplorationScene() {
                 </button>
               ))}
             </div>
+          </div>
+        )}
+
+        {/* Deduction trigger */}
+        {canDeduce && (
+          <div className="px-5 pb-6 pt-2">
+            <button
+              onClick={() => dispatch({ type: 'OPEN_DEDUCTION' })}
+              className="w-full border border-stone-500 text-stone-300 text-sm py-3 hover:border-stone-300 hover:text-stone-100 transition-colors duration-200 tracking-wider"
+            >
+              陳述推理 →
+            </button>
           </div>
         )}
       </div>

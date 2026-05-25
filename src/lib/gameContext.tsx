@@ -259,6 +259,31 @@ function gameReducer(state: GameState, action: GameAction): GameState {
     case 'CLOSE_INVENTORY':
       return { ...state, phase: state.inventoryPreviousPhase }
 
+    case 'OPEN_DEDUCTION':
+      return { ...state, phase: 'deduction' }
+
+    case 'DEDUCTION_COMPLETE':
+      return {
+        ...state,
+        phase: 'title_card',
+        titleCardText: '第一幕 · 灰燼 · 終',
+        titleCardOnComplete: 'narration',
+        narrationTexts: [
+          '陳組長把你的推理聽完了。',
+          '他把筆放下。沉默了一會兒。',
+          '「如果你說的是真的，」他說，「廖子豪的家屬需要通知。至於林志遠——」',
+          '他看著你。',
+          '「謝小姐，你不覺得奇怪嗎。每次有人失蹤，你就在附近。」',
+          '你低下頭。',
+          '你知道他說的不是同一個意思。',
+          '但他說的是真的。',
+          '你一直在他消失的地方，等待他再次出現。',
+          '下一次，不會再是這樣了。',
+        ],
+        narrationIndex: 0,
+        narrationOnComplete: 'title',
+      }
+
     default:
       return state
   }

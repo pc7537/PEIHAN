@@ -9,6 +9,8 @@ import MemoryFragment from './MemoryFragment'
 import TransitionScene from './TransitionScene'
 import ExplorationScene from './ExplorationScene'
 import DialogueScene from './DialogueScene'
+import FragmentInvestigationScene from './FragmentInvestigationScene'
+import DeductionScene from './DeductionScene'
 import ClueInventory from './ClueInventory'
 import ClueFoundOverlay from './ClueFoundOverlay'
 
@@ -52,11 +54,19 @@ export default function GameEngine() {
       case 'dialogue':
         return <DialogueScene />
 
+      case 'fragment_investigation':
+        return <FragmentInvestigationScene />
+
+      case 'deduction':
+        return <DeductionScene />
+
       case 'clue_found':
         return (
           <>
             {state.inventoryPreviousPhase === 'dialogue' ? (
               <DialogueScene />
+            ) : state.inventoryPreviousPhase === 'fragment_investigation' ? (
+              <FragmentInvestigationScene />
             ) : (
               <ExplorationScene />
             )}

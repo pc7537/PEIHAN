@@ -10,6 +10,7 @@ export type GamePhase =
   | 'fragment_investigation'
   | 'clue_found'
   | 'inventory'
+  | 'deduction'
 
 export interface GameState {
   phase: GamePhase
@@ -159,3 +160,5 @@ export type GameAction =
   | { type: 'CLOSE_INVENTORY' }
   | { type: 'SET_TRANSITION'; text: string; onComplete: GamePhase }
   | { type: 'TRANSITION_COMPLETE' }
+  | { type: 'OPEN_DEDUCTION' }
+  | { type: 'DEDUCTION_COMPLETE' }

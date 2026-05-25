@@ -6,8 +6,9 @@
   "fragments": {
     "phone_draft_01": {
       "type": "document",
-      "source_location": "scene_backyard_well",
+      "source_location": "ruins_backyard",
       "requires_clue": null,
+      "next": "phone_draft_02",
       "title": "手機草稿 #1",
       "timestamp": "11/23  18:42",
       "image": "/images/clue_phone_screen.webp",
@@ -17,8 +18,9 @@
     },
     "phone_draft_02": {
       "type": "document",
-      "source_location": "unlock_after_draft_1",
+      "source_location": null,
       "requires_clue": "clue_journalist_draft_1",
+      "next": "phone_draft_03",
       "title": "手機草稿 #2",
       "timestamp": "11/23  19:15",
       "image": null,
@@ -28,8 +30,9 @@
     },
     "phone_draft_03": {
       "type": "document",
-      "source_location": "unlock_after_draft_2",
+      "source_location": null,
       "requires_clue": "clue_journalist_draft_2",
+      "next": "memory_well_encounter",
       "title": "手機草稿 #3（最後一則）",
       "timestamp": "11/23  20:47",
       "image": null,
@@ -39,8 +42,9 @@
     },
     "notebook_page": {
       "type": "document",
-      "source_location": "scene_side_room_floor",
+      "source_location": "ruins_side_room",
       "requires_clue": null,
+      "next": "memory_fragment_cafe",
       "title": "採訪筆記（部分損毀）",
       "timestamp": null,
       "image": "/images/clue_notebook.webp",
@@ -50,11 +54,14 @@
     },
     "memory_fragment_cafe": {
       "type": "memory",
-      "trigger_clue": "clue_journalist_draft_2",
+      "source_location": null,
+      "requires_clue": null,
+      "next": null,
       "title": "記憶碎片：咖啡館，兩週前",
       "image": "/images/memory_cafe_bw.webp",
       "text": "畫面是黑白的。\n\n一間咖啡館，你不記得在哪裡。\n\n對面坐著一個男人，四十歲左右，眼睛下面有陰影，像是很久沒睡好。\n\n他把一個信封放在桌上。\n\n「我知道你在找他，」他說，「我也在找。」\n\n你沒有說話。\n\n「我有他的下落，」他說，「但我需要你答應我一件事。」",
       "reveal": "clue_memory_cafe_meeting",
+      "narrator": null,
       "choices": [
         { "label": "「你要我答應什麼？」", "next": "memory_cafe_continue" },
         { "label": "記憶中斷——你想不起來了", "next": "memory_interrupt" }
@@ -62,7 +69,9 @@
     },
     "memory_cafe_continue": {
       "type": "memory",
+      "source_location": null,
       "requires_clue": "clue_memory_cafe_meeting",
+      "next": null,
       "title": "記憶碎片：咖啡館（續）",
       "image": null,
       "text": "他把信封推過來。\n\n「如果我去找他，你不要跟著來，」他說，「讓我先和他說。」\n\n「然後，不管他決定什麼，你再去。」\n\n你打開信封。裡面是一張地圖，畫著山路，和一個圓圈，標著——\n\n清淨院，側門。\n\n你答應了他。",
@@ -71,15 +80,20 @@
     },
     "memory_interrupt": {
       "type": "memory",
+      "source_location": null,
       "requires_clue": null,
+      "next": null,
       "title": null,
       "image": null,
       "text": "畫面碎成白光。\n\n你坐在詢問室的椅子上，手心是汗的。\n\n那個信封。\n\n你後來做了什麼？\n\n你想不起來。",
-      "reveal": null
+      "reveal": null,
+      "narrator": null
     },
     "memory_well_encounter": {
       "type": "memory",
-      "trigger_clue": "clue_journalist_draft_3",
+      "source_location": null,
+      "requires_clue": null,
+      "next": null,
       "title": "記憶碎片：寺院後院，昨夜",
       "image": "/images/memory_well_bw.webp",
       "text": "雨聲。\n\n水井旁，有一個人影，背對著你。\n\n你叫了一聲。\n\n那個人轉過頭來。\n\n不是行空。\n\n「謝小姐，」他說，「你不應該來的。」\n\n然後記憶碎了。",
